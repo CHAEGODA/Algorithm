@@ -2,17 +2,14 @@ import java.util.*;
 
 public class Solution {
     public int[] solution(int []arr) {
-        int n = arr.length;
-        List<Integer> answer = new ArrayList<>();
-        for (int i = 0; i < n - 1; i++) {
-            if (arr[i] == arr[i+1]) {
-                continue;
-            } else {
+        ArrayList<Integer> answer = new ArrayList<>();
+        answer.add(arr[0]);
+        
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i - 1] != arr[i]) {
                 answer.add(arr[i]);
             }
         }
-        answer.add(arr[n - 1]);
-        
         return answer.stream().mapToInt(Integer::intValue).toArray();
     }
 }
